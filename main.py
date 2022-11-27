@@ -1,9 +1,8 @@
 from random import randint
 
-import graphic_arts.start_game_banner
-
 
 def attack(char_name: str, char_class: str) -> str:
+    """Return result action attack."""
     if char_class == 'warrior':
         return (
             f'{char_name} нанёс урон'
@@ -21,6 +20,7 @@ def attack(char_name: str, char_class: str) -> str:
 
 
 def defence(char_name: str, char_class: str) -> str:
+    """Return result action defence."""
     if char_class == 'warrior':
         return (
             f'{char_name} блокировал' f' {10 + randint(5, 10)} урона'
@@ -37,6 +37,7 @@ def defence(char_name: str, char_class: str) -> str:
 
 
 def special(char_name: str, char_class: str) -> str:
+    """Return result action special action."""
     if char_class == 'warrior':
         return (
             f'{char_name} применил'
@@ -56,6 +57,7 @@ def special(char_name: str, char_class: str) -> str:
 
 
 def start_training(char_name: str, char_class: str) -> str:
+    """Return result training action."""
     if char_class == 'warrior':
         print(f'{char_name}, ты Воитель — отличный боец ближнего боя.')
     if char_class == 'mage':
@@ -82,14 +84,14 @@ def start_training(char_name: str, char_class: str) -> str:
 
 
 def choice_char_class() -> str:
+    """Return result changing person class."""
     approve_choice: str = None
     char_class: str = None
     while approve_choice != 'y':
         char_class = input(
             'Введи название персонажа,'
             'за которого хочешь играть: '
-            'Воитель — warrior, Маг — mage, Лекарь — healer: '
-        )
+            'Воитель — warrior, Маг — mage, Лекарь — healer: ')
         if char_class == 'warrior':
             print(
                 'Воитель — дерзкий воин ближнего боя.'
@@ -104,13 +106,11 @@ def choice_char_class() -> str:
                 'Черпает силы из природы, веры и духов.')
         approve_choice = input(
             'Нажми (Y), чтобы подтвердить выбор,'
-            'или любую другую кнопку, чтобы выбрать другого персонажа '
-        ).lower()
+            'или любую другую кнопку, чтобы выбрать другого персонажа').lower()
     return char_class
 
 
-def main():
-    graphic_arts.run_screensaver()
+if __name__ == '__main__':
     print('Приветствую тебя, искатель приключений!')
     print('Прежде чем начать игру...')
     char_name: str = input('...назови себя: ')
